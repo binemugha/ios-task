@@ -11,11 +11,11 @@ class LabelWithPadding: UILabel {
     @IBInspectable var padding: CGFloat = 8
 
     override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.inset(by: UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)))
+        super.drawText(in: rect.inset(by: UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding))) // Changed the padding on the top and bottom to 0
     }
 
     override var intrinsicContentSize: CGSize {
         let originalSize = super.intrinsicContentSize
-        return CGSize(width: originalSize.width + padding * 2, height: originalSize.height + padding * 2)
+        return CGSize(width: originalSize.width , height: originalSize.height) // Removed the "+ padding * 2"
     }
 }
