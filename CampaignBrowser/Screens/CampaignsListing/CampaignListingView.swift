@@ -74,15 +74,18 @@ class ListingDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
             campaignCell.name = campaign.name
             campaignCell.descriptionText = campaign.description
         } else {
-            assertionFailure("The cell should a CampaignCell")
+            assertionFailure("The cell should be a CampaignCell")
         }
         return cell
     }
-
+    
+    //Removing the fixed height and changing to dynamic cell height
+/*
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 450)
+        return CGSize(width: collectionView.frame.size.width, height: 450) //Changing from the fixed height
     }
+ */
 
 }
 
@@ -109,3 +112,4 @@ class LoadingDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
         return collectionView.frame.size
     }
 }
+
