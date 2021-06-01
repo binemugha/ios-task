@@ -50,4 +50,22 @@ class CampaignCell: UICollectionViewCell {
         assert(descriptionLabel != nil)
         assert(imageView != nil)
     }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        
+        //Enabling Auto Layout
+        setNeedsLayout()
+        layoutIfNeeded()
+        
+        //Trying to fit contentView to the target size in layoutAttributes
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        
+        //Updating the layoutAttributes with height that was calculated
+        var frame = layoutAttributes.frame
+        frame.size.height = ceil(size.height)   //Rounded up half pixels
+        layoutAttributes.frame = frame
+        
+        return layoutAttributes
+    }
+    
 }
